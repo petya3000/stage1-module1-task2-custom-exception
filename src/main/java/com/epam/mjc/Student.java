@@ -3,6 +3,12 @@ package com.epam.mjc;
 
 import java.util.Arrays;
 
+class StudentException extends IllegalArgumentException{
+  public StudentException(String m){
+    super(m);
+  }
+}
+
 public enum Student {
 
   MAX(1, "Max", 15),
@@ -27,10 +33,10 @@ public enum Student {
   }
 
   public static Student getValueOf(long id) {
-    return Arrays.stream(Student.values())
-        .filter(student -> id == student.getId())
-        .findFirst()
-        .orElse(null);
+      return Arrays.stream(Student.values())
+              .filter(student -> id == student.getId())
+              .findFirst()
+              .orElse(null);
   }
 
   public long getId() {
